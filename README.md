@@ -70,6 +70,13 @@ To add a new tag select the "Post" section in the content model and then edit th
 
 After making changes to the content model it is recommended to generate the contentful types again.
 
+### Resizing Images
+
+By default images will be displayed in the size that they have been uploaded (up to screen width). To allow resizing images tags can be assigned to them in contentful:
+
+- `mediumImage` - 75% of the normal size
+- `smallImage` - 50% the normal size 
+
 ### Contentful Type Generation
 
 1. Create a Personal Access Token in your contentful account
