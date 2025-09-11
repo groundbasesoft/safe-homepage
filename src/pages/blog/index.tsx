@@ -33,8 +33,12 @@ export const getStaticProps: GetStaticProps<BlogHomeProps> = async () => {
   if (isEntryTypePost(blogHome.fields.featured)) {
     delete blogHome.fields.featured.fields.relatedPosts
   }
-  blogHome.fields.mostPopular.forEach((item: any) => delete item.fields.relatedPosts)
-  allPosts.items.forEach((item: any) => delete item.fields.relatedPosts)
+  blogHome.fields.mostPopular.forEach((item: any) => {
+    if (item?.fields?.relatedPosts) delete item.fields.relatedPosts
+  })
+  allPosts.items.forEach((item: any) => {
+    if (item?.fields?.relatedPosts) delete item.fields.relatedPosts
+  })
 
   return {
     props: {

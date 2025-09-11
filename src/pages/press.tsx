@@ -31,7 +31,9 @@ export const getStaticProps: GetStaticProps<PressRoomProps> = async () => {
     }
   }
 
-  allPosts.items.forEach((item: any) => delete item.fields.relatedPosts)
+  allPosts.items.forEach((item: any) => {
+    if (item?.fields?.relatedPosts) delete item.fields.relatedPosts
+  })
 
   return {
     props: {
